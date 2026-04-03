@@ -1,0 +1,53 @@
+# Employee Table Queries – Experiment 2 (Retrieving Data)
+
+-- Question 1: List all distinct jobs
+SELECT DISTINCT job 
+FROM Employee;
+
+-- Question 2: Display all information about employees in Department 30
+SELECT * 
+FROM Employee 
+WHERE DeptNo = 30;
+
+-- Question 3: Find department numbers with department names greater than 20
+SELECT DeptNo, Dname 
+FROM Department 
+WHERE DeptNo > 20;
+
+-- Question 4: Display all managers and clerks in Department 30
+SELECT * 
+FROM Employee 
+WHERE DeptNo = 30 
+AND job IN ('MANAGER','CLERK');
+
+-- Question 5: List employee name, emp number and department of all clerks
+SELECT Ename, EmpNo, DeptNo 
+FROM Employee 
+WHERE job = 'CLERK';
+
+-- Question 6: Find all managers not in Department 30
+SELECT * 
+FROM Employee 
+WHERE job = 'MANAGER' 
+AND DeptNo <> 30;
+
+-- Question 7: Employees in Department 10 who are not manager or clerk
+SELECT * 
+FROM Employee 
+WHERE DeptNo = 10 
+AND job NOT IN ('MANAGER','CLERK');
+
+-- Question 8: Employees earning between 1200 and 1400
+SELECT Ename, Job, Sal 
+FROM Employee 
+WHERE Sal BETWEEN 1200 AND 1400;
+
+-- Question 9: Employees who are clerk, analyst or salesman
+SELECT Ename, DeptNo 
+FROM Employee 
+WHERE job IN ('CLERK','ANALYST','SALESMAN');
+
+-- Question 10: Employees whose names begin with 'M'
+SELECT Ename, DeptNo 
+FROM Employee 
+WHERE Ename LIKE 'M%';
