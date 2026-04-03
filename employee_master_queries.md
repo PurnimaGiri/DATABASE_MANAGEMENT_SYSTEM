@@ -220,11 +220,5 @@ DROP TABLE Employee\_Master;
 
 
 
-\## Compatible with:
 
-\- XAMPP
-
-\- MySQL
-
-\- MariaDB
 
