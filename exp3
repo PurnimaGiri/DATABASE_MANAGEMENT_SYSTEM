@@ -1,0 +1,54 @@
+# Employee Table Queries – Experiment 3 (Sorting & Pattern Matching)
+
+-- Question 1: List all employees and jobs in Department 30 in descending order by salary
+SELECT ename, job, sal 
+FROM Employee 
+WHERE DeptNo = 30 
+ORDER BY sal DESC;
+
+-- Question 2: List job and department number of employees whose name is five letters long, begins with 'A' and ends with 'N'
+SELECT job, DeptNo 
+FROM Employee 
+WHERE ename LIKE 'A___N';
+
+-- Question 3: Display the names of employees whose name starts with 'S'
+SELECT ename 
+FROM Employee 
+WHERE ename LIKE 'S%';
+
+-- Question 4: Display the names of employees whose name ends with 'S'
+SELECT ename 
+FROM Employee 
+WHERE ename LIKE '%S';
+
+-- Question 5: Display employees working in department 10, 20, 40 OR working as clerk, salesman or analyst
+SELECT * 
+FROM Employee 
+WHERE DeptNo IN (10,20,40) 
+OR job IN ('CLERK','SALESMAN','ANALYST');
+
+-- Question 6: Display employee number and names for employees who earn commission
+SELECT EmpNo, Ename 
+FROM Employee 
+WHERE Comm IS NOT NULL 
+AND Comm > 0;
+
+-- Question 7: Display employee number and total salary for each employee
+SELECT EmpNo, (Sal + IFNULL(Comm,0)) AS total_salary 
+FROM Employee;
+
+-- Question 8: Display employee number and annual salary for each employee
+SELECT EmpNo, (Sal * 12) AS annual_salary 
+FROM Employee;
+
+-- Question 9: Display names of all employees working as clerks and drawing salary more than 3000
+SELECT ename 
+FROM Employee 
+WHERE job = 'CLERK' 
+AND Sal > 3000;
+
+-- Question 10: Display names of employees who are clerk, salesman or analyst and drawing salary more than 3000
+SELECT ename 
+FROM Employee 
+WHERE job IN ('CLERK','SALESMAN','ANALYST') 
+AND Sal > 3000;
